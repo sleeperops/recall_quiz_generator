@@ -1,3 +1,6 @@
+# Path of the question file
+quiz_directory = r"recall_quiz_generator/quiz_creator/quiz_file.txt" 
+
 class Item:
 
     def __init__(self, question, option_a, option_b, option_c, option_d, correct_answer):
