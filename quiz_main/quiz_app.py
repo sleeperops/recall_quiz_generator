@@ -1,11 +1,11 @@
-import read_quiz
-import extract_and_repack
-import shuffle
-import display_question
-import score_count
+from modules.read_quiz import ReadQuiz
+from modules.extract_and_repack import ExtractRepack
+from modules.shuffle import Shuffle
+from modules.display_question import DisplayQuestion
+from modules.score_count import ScoreCount
 
 # Path of the quiz file
-quiz_directory = r"recall_quiz_generator/quiz_creator/quiz_file.txt" 
+quiz_directory = r"recall_quiz_generator/quiz_creator/quiz_file/quiz_file.txt" 
 
 class Item:
 
@@ -17,10 +17,14 @@ class Item:
         self.option_d = option_d
         self.correct_answer = correct_answer
 
-# UI ----------------------
-# Initialization
-quiz_lines_list = read_quiz(quiz_directory)
-quiz_items_dict = extract_and_repack(quiz_lines_list)  # List of questions/item
+# Initialization ----------
+
+# Creates a list of all the lines from the quiz_file text file
+quiz_lines_list = ReadQuiz.read_quiz(quiz_directory)
+
+# Extracts those lines and encapsulates them into objects as "items".
+# It then returns a dictionary that contains those items
+quiz_items_dict = ExtractRepack.extract_and_repack(quiz_lines_list)  
 
 # Header ------------------
 print(f"""Welcome to the recall quiz app
@@ -30,7 +34,7 @@ print(f"""Welcome to the recall quiz app
 while True:
 
     # Initialize randomize_index. Stores a random sequence of numbers based on the range of the given dictionary.
-    randomized_index = shuffle(1, len(quiz_items_dict))
+    randomized_index = Shuffle.shuffle(1, len(quiz_items_dict))
 
     # Initialize quiz_result_summary dictionary. Records the finished items along with the results.
     quiz_result_summary = {}
@@ -45,7 +49,7 @@ while True:
         for index in randomized_index:
 
             # Print the question in a question-options format
-            print(display_question(quiz_items_dict,index)) 
+            print(DisplayQuestion.display_question(quiz_items_dict,index)) 
 
             # Request for an answer 
             input_answer = input("Answer: ")  
@@ -65,4 +69,4 @@ while True:
             quiz_result_summary[index] = answer_state
 
     # Print the score over the total number of items
-    print(f" Total Score: {score_count(quiz_result_summary)}/{len(quiz_items_dict)}")
+    print(f" Total Score: {ScoreCount.score_count(quiz_result_summary)}/{len(quiz_items_dict)}")
