@@ -7,18 +7,6 @@ from app_modules.score_count import ScoreCount
 # Path of the quiz file
 quiz_directory = r"quiz_main/quiz_creator/quiz_file/quiz_file.txt" 
 
-class Item:
-
-    def __init__(self, question, option_a, option_b, option_c, option_d, correct_answer):
-        self.question = question
-        self.option_a = option_a
-        self.option_b = option_b
-        self.option_c = option_c
-        self.option_d = option_d
-        self.correct_answer = correct_answer
-
-# Initialization ----------
-
 # Creates a list of all the lines from the quiz_file text file
 quiz_lines_list = ReadQuiz.read_quiz(quiz_directory)
 
