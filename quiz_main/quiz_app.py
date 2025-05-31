@@ -1,11 +1,11 @@
-from modules.read_quiz import ReadQuiz
-from modules.extract_and_repack import ExtractRepack
-from modules.shuffle import Shuffle
-from modules.display_question import DisplayQuestion
-from modules.score_count import ScoreCount
+from app_modules.read_quiz import ReadQuiz
+from app_modules.extract_and_repack import ExtractRepack
+from app_modules.shuffle import Shuffle
+from app_modules.display_question import DisplayQuestion
+from app_modules.score_count import ScoreCount
 
 # Path of the quiz file
-quiz_directory = r"recall_quiz_generator/quiz_creator/quiz_file/quiz_file.txt" 
+quiz_directory = r"quiz_main/quiz_creator/quiz_file/quiz_file.txt" 
 
 class Item:
 
