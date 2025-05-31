@@ -1,7 +1,7 @@
 from modules.write_content import WriteFile
 
 # Directory of the quiz file that stores all formatted questions
-quiz_directory = r"quiz_creator/quiz_file/quiz_file.txt"
+quiz_directory = r"quiz_main/quiz_creator/quiz_file/quiz_file.txt"
 
 # Runs a loop; accepts and writes the inputs until the user decides to exit
 while True: 
