@@ -1,3 +1,5 @@
+import random
+
 class Shuffle:
 
     def shuffle(min,max):
